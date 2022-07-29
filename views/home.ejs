@@ -21,17 +21,22 @@
 
         <div class="mainPage__content container">
             <div class="row justify-content-md-center">
-                <% var rows = 5;
+                <% var rows = newTasksItems.length;
                 for (let i = 0; i < rows ; i++) { %>
-                    <div class="card bg-dark mainPage__taskBox col-3">
-                        <div class="card-header"> <p> Task <%=i+1%> </p> </div>
-                        <div class="card-body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at justo interdum, elementum tortor et, tempor est. Nunc in eros quam.</p></div>
+                    <div class="fadeIn card bg-dark mainPage__taskBox col-3 fade-in">
+                        <div class="card-header"> <input type="checkbox"> <p class="taskTitle"> Task <%=i+1%> </p> </div>
+                        <div class="card-body"><p> <%= newTasksItems[i] %> </p></div>
                     </div>
                 <%}%>
             </div>
 
             <div class="content__add">
-                <button class="button justify-content-md-center" type="submit" name="button"><i class="fa-solid fa-plus"></i></button>
+                <form action="/" method="post">
+                    <input id="textBox" class="textBox-hide" type="text" name="newTask">
+                    <button id="handle" class="button justify-content-md-center" type="submit" name="button">
+                        <i id="addIcon" class="fa-solid fa-plus"></i>
+                    </button>
+                </form>
             </div>
         </div>
 
@@ -42,6 +47,14 @@
 
     <script src="https://kit.fontawesome.com/5d3be9dc63.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        let textBox = document.getElementById('textBox');
+        let addIcon = document.getElementById('addIcon')
+        document.getElementById('handle').onclick = function (event) {
+            textBox.classList.toggle('fade');
+        }
+
+    </script>
 </body>
 
 </html>

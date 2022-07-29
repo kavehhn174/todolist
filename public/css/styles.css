@@ -16,6 +16,22 @@ body {
     color: whitesmoke;
 }
 
+.card {
+    transition: transform .5s;
+    border-radius: 10px!important;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.body-header {
+    padding: 0.2rem!important;
+}
+
 .container {
     align-content: center!important;
     margin: 3% auto!important;
@@ -23,11 +39,12 @@ body {
 }
 
 .mainPage__taskBox {
+    vertical-align: center;
     display: inline-block;
     background-color: rgb(30, 30, 30);
     border-radius: 20px;
-    margin: 10px;
-    padding: 30px;
+    margin: 30px;
+    padding: 10px;
 }
 
 .dateBox__text {
@@ -35,14 +52,85 @@ body {
 }
 
 .button {
+    transition: border 1s;
     justify-content: center;
     font-size: 20px;
     height: 50px;
     width: 50px;
     background-color: #ece8ab!important;
     border-radius: 100px!important;
-    border: none;
 }
+
+.taskTitle {
+    display: inline-block;
+}
+
+#textBox {
+    width: 0;
+    opacity: 0;
+    transition: opacity 0.5s, width 1s;
+    margin-right: 10px;
+}
+
+#textBox.fade {
+    width: 200px;
+    opacity: 1;
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
 
 .content__add {
     text-align: center;
@@ -64,3 +152,4 @@ body {
     background-color: #e5e5f7;
     background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ece8ab 10px ), repeating-linear-gradient( rgba(246, 232, 157, 0.33), #f7e9b0 );
 }
+
