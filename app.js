@@ -9,10 +9,15 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(express.static("public"));
+
 app.get("/", function(req,res) {
     let today = new Date();
-
-    res.render("home", {today: today});
+    let options = {
+        weekday: "long" , day: "numeric", month:"long"
+    }
+    let day = today.toLocaleDateString("en-US", options);
+    res.render("home", {day: day});
 
 })
 
